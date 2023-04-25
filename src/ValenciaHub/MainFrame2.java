@@ -1,5 +1,5 @@
 package ValenciaHub;
-
+//Alejandro Romero Lorenzo - 20509297J
 import javax.swing.*;
 import ValenciaHubBackEnd_Hub.*;
 
@@ -19,7 +19,7 @@ public class MainFrame2 extends JFrame {
     public MainFrame2(contenedor ContenedorAMostrar) {
         setContentPane(mainPanel2);
         setTitle("Gestión de contenedores - Ver detalles del contenedor");
-        setSize(800, 600);
+        setSize(800, 700);
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setVisible(true);
         mainPanel2.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));

@@ -1,5 +1,6 @@
 package ValenciaHub;
 import ValenciaHubBackEnd_Hub.*;
+import com.sun.tools.javac.Main;
 /*
 TRABAJO - FUNDAMENTOS DE PROGRAMACIÓN II
 INTERFAZ GRÁFICA DE PROGRAMA DE GESTIÓN DE CONTENEDORES "VALENCIA HUB MANAGEMENT SOFTWARE"
@@ -18,8 +19,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.io.*;
-import java.nio.file.Files;
-
+//Alejandro Romero Lorenzo - 20509297J
 public class MainFrame extends JFrame {
     private JTextField campo_ID;
     private JTextField campo_Peso;
@@ -44,6 +44,8 @@ public class MainFrame extends JFrame {
     private JRadioButton hub1RadioButton;
     private JRadioButton hub2RadioButton;
     private JRadioButton hub3RadioButton;
+    private JButton chequearAduanas;
+    private JTextField campo_peso_aduanas;
     private JButton hub1Button;
 
 
@@ -351,6 +353,32 @@ public class MainFrame extends JFrame {
         });
 
 
+        chequearAduanas.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int peso=Integer.parseInt(campo_peso_aduanas.getText());
+                MainFrame3 m31 = new MainFrame3(p1.chequearenAduana(peso, hubSelected()));
+            }
+        });
+
+        //QUITAR TEXTO ID Contenedor
+        campo_peso_aduanas.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                super.focusGained(e);
+                if(campo_peso_aduanas.getText().equals("Peso")){
+                    campo_peso_aduanas.setText("");
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                super.focusLost(e);
+                if(campo_peso_aduanas.getText().equals("")){
+                    campo_peso_aduanas.setText("Peso");
+                }
+            }
+        });
     }
     private int hubSelected(){
         int hubNumber;
@@ -364,6 +392,8 @@ public class MainFrame extends JFrame {
 
         return hubNumber;
     }
+
+
     public static void main(String[] args) {
         MainFrame test = new MainFrame();
         
